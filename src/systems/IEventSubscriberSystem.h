@@ -9,11 +9,13 @@
 #include "entt/entity/registry.hpp"
 #include "EventSystem.h"
 
-class IEventSubscriberSystem {
-public:
-    virtual void SubscribeEvents(entt::registry* registry, Events::Subscriber* subscriber) = 0;
-    virtual void UnsubscribeEvents(entt::registry* registry, Events::Subscriber* subscriber) = 0;
-};
+namespace arr {
+    class IEventSubscriberSystem {
+    public:
+        virtual void SubscribeEvents(entt::registry* registry, Events::Subscriber* subscriber) = 0;
+        virtual void UnsubscribeEvents(entt::registry* registry, Events::Subscriber* subscriber) = 0;
+    };
+}
 
 
 #endif //ARRECS_IEVENTREGISTRABLESYSTEM_H

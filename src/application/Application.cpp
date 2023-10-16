@@ -5,13 +5,11 @@
 #include <iostream>
 #include "Time.h"
 #include "Application.h"
-#include "../scenes/Scene.h"
-#include "../services/ServiceLocator.h"
 
-std::unique_ptr<Scene> Application::currentScene;
-std::unique_ptr<Scene> Application::nextScene;
+std::unique_ptr<arr::Scene> arr::Application::currentScene;
+std::unique_ptr<arr::Scene> arr::Application::nextScene;
 
-void Application::Run() {
+void arr::Application::Run() {
     serviceLocator = std::make_shared<ServiceLocator>(&servicesHandler);
     RegisterServices();
     servicesHandler.Load();
@@ -43,7 +41,7 @@ void Application::Run() {
     window->End();
 }
 
-void Application::GameLoop() {
+void arr::Application::GameLoop() {
     Time::update();
 
     servicesHandler.Update(Time::getDeltaTime());

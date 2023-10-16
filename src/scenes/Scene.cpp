@@ -4,16 +4,16 @@
 
 #include "Scene.h"
 
-Scene::Scene() {
+arr::Scene::Scene() {
 
 }
 
-Scene::~Scene() {
+arr::Scene::~Scene() {
     systemHandler.UnregisterEvents(&registry, &eventListener);
     systemHandler.UnloadSystems();
 }
 
-void Scene::Start(std::shared_ptr<IWindow> window, std::shared_ptr<ServiceLocator> serviceLocator) {
+void arr::Scene::Start(std::shared_ptr<IWindow> window, std::shared_ptr<ServiceLocator> serviceLocator) {
     this->window = window;
 
     RegisterSystems(&systemHandler);
@@ -27,29 +27,29 @@ void Scene::Start(std::shared_ptr<IWindow> window, std::shared_ptr<ServiceLocato
     OnStart();
 }
 
-void Scene::Update() {
+void arr::Scene::Update() {
     systemHandler.UpdateSystems(&registry);
     OnUpdate();
 }
 
-void Scene::FixedUpdate() {
+void arr::Scene::FixedUpdate() {
     systemHandler.FixedUpdateSystems(&registry);
     OnFixedUpdate();
 }
 
-void Scene::Render() {
+void arr::Scene::Render() {
     systemHandler.RenderSystems(&registry);
     OnRender();
 }
 
-void Scene::FinalUpdate() {
+void arr::Scene::FinalUpdate() {
     systemHandler.FinalUpdateSystems(&registry);
 }
 
-void Scene::EarlyUpdate() {
+void arr::Scene::EarlyUpdate() {
     systemHandler.EarlyUpdateSystems(&registry);
 }
 
-void Scene::LateUpdate() {
+void arr::Scene::LateUpdate() {
     systemHandler.LateUpdateSystems(&registry);
 }

@@ -5,11 +5,11 @@
 #ifndef ARRECS_IUPDATABLESERVICE_H
 #define ARRECS_IUPDATABLESERVICE_H
 
-
-class IUpdatableService {
-public:
-    virtual void Update(float deltaTime) = 0;
-};
-
+namespace arr {
+    class IUpdatableService {
+    public:
+        virtual void Update(float deltaTime) = 0;
+    };
+}
 
 #endif //ARRECS_IUPDATABLESERVICE_H

@@ -8,10 +8,12 @@
 
 #include "entt/entity/registry.hpp"
 
-class IFixedUpdatableSystem {
-public:
-    virtual void FixedUpdate(entt::registry* registry) = 0;
-};
+namespace arr {
+    class IFixedUpdatableSystem {
+    public:
+        virtual void FixedUpdate(entt::registry* registry) = 0;
+    };
+}
 
 
 #endif //ARRECS_IFIXEDUPDATABLESYSTEM_H

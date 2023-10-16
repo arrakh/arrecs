@@ -8,11 +8,13 @@
 
 #include "entt/entity/registry.hpp"
 
-class ILoadableSystem {
-public:
-    virtual void Load(entt::registry* registry) = 0;
-    virtual void Unload() = 0;
-};
+namespace arr {
+    class ILoadableSystem {
+    public:
+        virtual void Load(entt::registry* registry) = 0;
+        virtual void Unload() = 0;
+    };
+}
 
 
 #endif //ARRECS_ILOADABLESYSTEM_H

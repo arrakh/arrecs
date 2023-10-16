@@ -8,10 +8,12 @@
 
 #include "entt/entity/registry.hpp"
 
-class ILateUpdatableSystem {
-public:
-    virtual void LateUpdate(entt::registry* registry) = 0;
-};
+namespace arr {
+    class ILateUpdatableSystem {
+    public:
+        virtual void LateUpdate(entt::registry* registry) = 0;
+    };
+}
 
 
 #endif //ARRECS_ILATEUPDATABLESYSTEM_H

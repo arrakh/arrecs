@@ -7,9 +7,11 @@
 
 #include <entt/entt.hpp>
 
-class IEarlyUpdatableSystem {
-public:
-    virtual void EarlyUpdate(entt::registry* registry) = 0;
-};
+namespace arr {
+    class IEarlyUpdatableSystem {
+    public:
+        virtual void EarlyUpdate(entt::registry* registry) = 0;
+    };
+}
 
 #endif //ARRECS_IEARLYUPDATABLESYSTEM_H

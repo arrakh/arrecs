@@ -8,10 +8,12 @@
 
 #include "EventSystem.h"
 
-class IEventPublisherSystem {
-public:
-    virtual void OnInjectPublisher(Events::Publisher* publisher) = 0;
-};
+namespace arr {
+    class IEventPublisherSystem {
+    public:
+        virtual void OnInjectPublisher(Events::Publisher* publisher) = 0;
+    };
+}
 
 
 #endif //ARRECS_IEVENTPUBLISHERSYSTEM_H

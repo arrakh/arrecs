@@ -7,10 +7,12 @@
 
 #include <entt/entt.hpp>
 
-class IFinalUpdatableSystem {
-public:
-    virtual void FinalUpdate(entt::registry* registry) = 0;
-};
+namespace arr {
+    class IFinalUpdatableSystem {
+    public:
+        virtual void FinalUpdate(entt::registry* registry) = 0;
+    };
+}
 
 
 #endif //ARRECS_IFINALUPDATABLESYSTEM_H

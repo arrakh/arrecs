@@ -7,11 +7,13 @@
 
 #include "entt/entt.hpp"
 
-class IRenderableSystem {
-public:
-    virtual void Render(entt::registry* registry) = 0;
-    virtual int GetRenderOrder() = 0;
-};
+namespace arr {
+    class IRenderableSystem {
+    public:
+        virtual void Render(entt::registry* registry) = 0;
+        virtual int GetRenderOrder() = 0;
+    };
+}
 
 
 #endif //ARRECS_IRENDERABLESYSTEM_H

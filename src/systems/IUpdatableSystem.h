@@ -7,10 +7,12 @@
 
 #include "entt/entt.hpp"
 
-class IUpdatableSystem {
-public:
-    virtual void Update(entt::registry* registry) = 0;
-};
+namespace arr {
+    class IUpdatableSystem {
+    public:
+        virtual void Update(entt::registry* registry) = 0;
+    };
+}
 
 
 #endif //ARRECS_IUPDATABLESYSTEM_H

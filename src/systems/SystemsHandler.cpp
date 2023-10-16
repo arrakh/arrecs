@@ -3,86 +3,87 @@
 //
 
 #include "SystemsHandler.h"
+#include "EventSystem.h"
 
-void SystemsHandler::UpdateSystems(entt::registry* registry) {
+void arr::SystemsHandler::UpdateSystems(entt::registry* registry) {
     for (const auto& system : updatables) {
         system->Update(registry);
     }
 }
 
-void SystemsHandler::RenderSystems(entt::registry* registry) {
+void arr::SystemsHandler::RenderSystems(entt::registry* registry) {
     for (const auto& system : renderables) {
         system->Render(registry);
     }
 }
 
-void SystemsHandler::LoadSystems(entt::registry* registry) {
+void arr::SystemsHandler::LoadSystems(entt::registry* registry) {
     for (const auto& system : loadables) {
         system->Load(registry);
     }
 }
 
-void SystemsHandler::UnloadSystems() {
+void arr::SystemsHandler::UnloadSystems() {
     for (const auto& system : loadables) {
         system->Unload();
     }
 }
 
-void SystemsHandler::FixedUpdateSystems(entt::registry *registry) {
+void arr::SystemsHandler::FixedUpdateSystems(entt::registry *registry) {
     for (const auto& system : fixedUpdatables) {
         system->FixedUpdate(registry);
     }
 }
 
-void SystemsHandler::RegisterEvents(entt::registry *registry, Events::Subscriber* listener) {
+void arr::SystemsHandler::RegisterEvents(entt::registry *registry, arr::Events::Subscriber* listener) {
     for (const auto& system : eventRegistrables) {
         system->SubscribeEvents(registry, listener);
     }
 }
 
-void SystemsHandler::UnregisterEvents(entt::registry *registry, Events::Subscriber* listener) {
+void arr::SystemsHandler::UnregisterEvents(entt::registry *registry, arr::Events::Subscriber* listener) {
     for (const auto& system : eventRegistrables) {
         system->UnsubscribeEvents(registry, listener);
     }
 }
 
-void SystemsHandler::SortRenderables() {
+void arr::SystemsHandler::SortRenderables() {
     std::sort(renderables.begin(), renderables.end(), [](const auto& a, const auto& b) {
         return a->GetRenderOrder() < b->GetRenderOrder();
     });
 }
 
-void SystemsHandler::InjectPublisher(Events::Publisher *publisher) {
+void arr::SystemsHandler::InjectPublisher(arr::Events::Publisher *publisher) {
     for (const auto& system : eventPublishers) {
         system->OnInjectPublisher(publisher);
     }
 }
 
-void SystemsHandler::FinalUpdateSystems(entt::registry *registry) {
+void arr::SystemsHandler::FinalUpdateSystems(entt::registry *registry) {
     for (const auto& system : finalUpdatables) {
         system->FinalUpdate(registry);
     }
 }
 
-void SystemsHandler::EarlyUpdateSystems(entt::registry *registry) {
+void arr::SystemsHandler::EarlyUpdateSystems(entt::registry *registry) {
     for (const auto& system : earlyUpdatables) {
         system->EarlyUpdate(registry);
     }
 }
 
-void SystemsHandler::LateUpdateSystems(entt::registry *registry) {
+void arr::SystemsHandler::LateUpdateSystems(entt::registry *registry) {
     for (const auto& system : lateUpdatables) {
         system->LateUpdate(registry);
     }
 }
 
-void SystemsHandler::InjectServiceLocator(const std::shared_ptr<ServiceLocator>& serviceLocator) {
+void arr::SystemsHandler::InjectServiceLocator(const std::shared_ptr<ServiceLocator>& serviceLocator) {
     for (const auto& system : locateServicesSystem) {
         system->LocateServices(serviceLocator);
     }
 }
 
-void SystemsHandler::InjectWindow(std::shared_ptr<IWindow> window) {
+void arr::SystemsHandler::InjectWindow(std::shared_ptr<IWindow> window) {
     for (const auto& system : windowInjectableSystem) {
         system->OnInject(window);
     }

@@ -7,10 +7,11 @@
 
 
 #include <memory>
+#include "../services/ServiceLocator.h"
 
 class ILocateServicesSystem {
 public:
-    virtual void LocateServices(std::shared_ptr<ServiceLocator> serviceLocator) = 0;
+    virtual void LocateServices(std::shared_ptr<arr::ServiceLocator> serviceLocator) = 0;
 };
 
 

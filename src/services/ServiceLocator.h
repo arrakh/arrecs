@@ -8,21 +8,24 @@
 
 #include "ServicesHandler.h"
 
-class ServiceLocator {
-private:
-    ServicesHandler* handler;
-public:
-    ServiceLocator() {}
-    explicit ServiceLocator(ServicesHandler *handler) : handler(handler) { }
+namespace arr {
+    class ServiceLocator {
+    private:
+        ServicesHandler *handler;
+    public:
+        ServiceLocator() {}
 
-    template <class T> std::shared_ptr<T> Locate(){
-        return handler->template Locate<T>();
-    }
+        explicit ServiceLocator(ServicesHandler *handler) : handler(handler) {}
 
-    virtual ~ServiceLocator() {
-        delete handler;
-    }
-};
+        template<class T>
+        std::shared_ptr<T> Locate() {
+            return handler->template Locate<T>();
+        }
 
+        virtual ~ServiceLocator() {
+            delete handler;
+        }
+    };
+}
 
 #endif //ARRECS_SERVICELOCATOR_H

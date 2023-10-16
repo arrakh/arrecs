@@ -6,10 +6,12 @@
 #define ARRECS_IWINDOWINJECTABLESYSTEM_H
 
 
-class IWindowInjectableSystem {
-public:
-    virtual void OnInject(std::shared_ptr<IWindow> window) = 0;
-};
+namespace arr {
+    class IWindowInjectableSystem {
+    public:
+        virtual void OnInject(std::shared_ptr<IWindow> window) = 0;
+    };
+}
 
 
 #endif //ARRECS_IWINDOWINJECTABLESYSTEM_H

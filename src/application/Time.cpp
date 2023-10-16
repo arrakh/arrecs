@@ -4,39 +4,39 @@
 
 #include "Time.h"
 
-std::chrono::high_resolution_clock::time_point Time::lastFrame = std::chrono::high_resolution_clock::now();
-float Time::deltaTime = 0;
-float Time::unscaledDeltaTime = 0;
-float Time::timeScale = 1.0f;
-float Time::fixedDeltaTimeRate = 60.0f;
+std::chrono::steady_clock::time_point arr::Time::lastFrame = std::chrono::steady_clock::now();
+float arr::Time::deltaTime = 0;
+float arr::Time::unscaledDeltaTime = 0;
+float arr::Time::timeScale = 1.0f;
+float arr::Time::fixedDeltaTimeRate = 60.0f;
 
-void Time::update() {
-    auto now = std::chrono::high_resolution_clock::now();
+void arr::Time::update() {
+    auto now = std::chrono::steady_clock::now();
     unscaledDeltaTime = std::chrono::duration<float, std::chrono::seconds::period>(now - lastFrame).count();
     deltaTime = unscaledDeltaTime * timeScale;
     lastFrame = now;
 }
 
-float Time::getDeltaTime() {
+float arr::Time::getDeltaTime() {
     return deltaTime;
 }
 
-float Time::getUnscaledDeltaTime() {
+float arr::Time::getUnscaledDeltaTime() {
     return unscaledDeltaTime;
 }
 
-void Time::setTimeScale(float scale) {
+void arr::Time::setTimeScale(float scale) {
     timeScale = scale;
 }
 
-float Time::getTimeScale() {
+float arr::Time::getTimeScale() {
     return timeScale;
 }
 
-void Time::setFixedDeltaTimeRate(float rate) {
+void arr::Time::setFixedDeltaTimeRate(float rate) {
     fixedDeltaTimeRate = rate;
 }
 
-float Time::getFixedDeltaTime() {
+float arr::Time::getFixedDeltaTime() {
     return 1.f / fixedDeltaTimeRate;
 }

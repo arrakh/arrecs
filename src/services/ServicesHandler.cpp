@@ -4,19 +4,19 @@
 
 #include "ServicesHandler.h"
 
-void ServicesHandler::Load() {
+void arr::ServicesHandler::Load() {
     for (const auto& service : loadableServices) {
         service->Load();
     }
 }
 
-void ServicesHandler::Unload() {
+void arr::ServicesHandler::Unload() {
     for (const auto& service : loadableServices) {
         service->Unload();
     }
 }
 
-void ServicesHandler::Update(float deltaTime) {
+void arr::ServicesHandler::Update(float deltaTime) {
     for (const auto& service : updatableServices) {
         service->Update(deltaTime);
     }

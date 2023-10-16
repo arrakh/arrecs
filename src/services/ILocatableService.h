@@ -5,8 +5,9 @@
 #ifndef ARRECS_ILOCATABLESERVICE_H
 #define ARRECS_ILOCATABLESERVICE_H
 
-
-class ILocatableService { };
-
+namespace arr {
+    class ILocatableService {
+    };
+}
 
 #endif //ARRECS_ILOCATABLESERVICE_H
